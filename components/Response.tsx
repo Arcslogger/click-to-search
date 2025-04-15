@@ -23,7 +23,7 @@ const Entity = ({ value, context }: { value?: string; context?: string }) => {
   if (!overwrite) {
     return (
       <button
-        className="mx-1 px-1 rounded-md bg-gray-200 font-sans text-xl font-medium"
+        className="mx-0.5 px-1 rounded-md bg-gray-200 font-sans text-xl font-medium"
         onClick={handleClick}
       >
         {value}
@@ -32,21 +32,23 @@ const Entity = ({ value, context }: { value?: string; context?: string }) => {
   }
   if (isLoading && !object) {
     return (
-      <span className="mx-1 px-1 rounded-md bg-gray-100 text-gray-500 font-sans text-xl font-medium animate-pulse">
+      <span className="mx-0.5 px-1 rounded-md bg-gray-100 text-gray-500 font-sans text-xl font-medium animate-pulse">
         loading
       </span>
     );
   }
   return (
-    object?.response &&
-    object?.response.map((response, index) => {
-      if (response?.type === "text") {
-        return <Text value={response?.value} key={index} />;
-      } else {
-        // todo: rich prompting for generated entities
-        return <Entity value={response?.value} key={index} />;
-      }
-    })
+    <span className="bg-yellow-200">
+      {object?.insertion &&
+        object?.insertion.map((response, index) => {
+          if (response?.type === "text") {
+            return <Text value={response?.value} key={index} />;
+          } else {
+            // todo: rich prompting for generated entities
+            return <Entity value={response?.value} key={index} />;
+          }
+        })}
+    </span>
   );
 };
 

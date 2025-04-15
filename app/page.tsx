@@ -12,11 +12,10 @@ export default function Home() {
           melancholic, <Entity value="lo-fi" />, and <Entity value="R&B" />
           -influenced music. Formerly a YouTube personality under the name{" "}
           <Entity value="Filthy Frank" />, he transitioned into music with his
-          debut album
+          debut album{" "}
           <Entity value="Ballads 1 (2018)" context={rootPrompt + testPrompt1} />
           , which featured the hit <Entity value="Slow Dancing in the Dark" />.
-          His later albums,
-          <Entity value="Nectar (2020)" /> and{" "}
+          His later albums, <Entity value="Nectar (2020)" /> and{" "}
           <Entity value="Smithereens (2022)" />, further established his
           signature emotional and atmospheric sound.
         </p>
