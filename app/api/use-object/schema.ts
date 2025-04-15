@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const ResponseSchema = z.object({
-  response: z.array(
+  insertion: z.array(
     z
       .object({
         type: z
@@ -17,4 +17,7 @@ export const ResponseSchema = z.object({
         "Reply with text. When comming across any topics with a wikipedia page, switch to an entity and go back to text when done."
       )
   ),
+  suffix: z
+    .string()
+    .describe("Pre-existing text that should be after the insertion"),
 });

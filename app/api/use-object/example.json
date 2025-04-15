@@ -1,0 +1,69 @@
+{
+  "insertion": [
+    {
+      "type": "text",
+      "value": "works such as "
+    },
+    {
+      "type": "entity",
+      "value": "Channel Orange (2012)"
+    },
+    {
+      "type": "text",
+      "value": ", which is the debut studio album by Frank Ocean. It blends "
+    },
+    {
+      "type": "entity",
+      "value": "R&B"
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "entity",
+      "value": "soul"
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "entity",
+      "value": "jazz"
+    },
+    {
+      "type": "text",
+      "value": ", and psychedelic influences, featuring introspective storytelling and themes of love, identity, and social commentary. The album includes standout tracks like "
+    },
+    {
+      "type": "entity",
+      "value": "Thinkin Bout You, "
+    },
+    {
+      "type": "entity",
+      "value": "Pyramids, "
+    },
+    {
+      "type": "text",
+      "value": "and "
+    },
+    {
+      "type": "entity",
+      "value": "Bad Religion."
+    },
+    {
+      "type": "text",
+      "value": "It received critical acclaim, won a "
+    },
+    {
+      "type": "entity",
+      "value": "Grammy"
+    },
+    {
+      "type": "text",
+      "value": "for Best Urban Contemporary Album, and solidified Ocean as one of the most innovative artists of his generation. He went on to release a variety of other works, such as collaborations "
+    }
+  ],
+  "suffix": "and <Entity value=\"Blonde (2016)\" />, which have cemented him as one of the most influential artists of his generation."
+}
