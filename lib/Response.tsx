@@ -3,25 +3,23 @@
 import { experimental_useObject as useObject } from "@ai-sdk/react";
 import { ResponseSchema } from "@/app/api/use-object/schema";
 import { useState } from "react";
-import { useStore } from "./Store";
+import { useStore, Text as StoreText, Entity as StoreEntity } from "./Store";
 import { useShallow } from "zustand/react/shallow";
 
 export const Entity = ({
   storeId,
   name,
 }: {
-  storeId: number;
+  storeId?: number;
   name?: string;
 }) => {
   // MARK: properties ================================
 
-  const getNextEntityId = useStore(
-    useShallow((state) => state.getNextEntityId)
-  );
   const updateContext = useStore(useShallow((state) => state.updateContext));
   const generatePrompt = useStore(useShallow((state) => state.generatePrompt));
-
-  const [overwrite, setOverwrite] = useState(false);
+  const [overwrite, setOverwrite] = useState<boolean>(false);
+  const [finalVal, setFinalVal] = useState<(StoreText | StoreEntity)[]>([]);
+  const getNextEntityId = useStore((state) => state.getNextEntityId);
   const { object, submit, isLoading } = useObject({
     api: "/api/use-object",
     schema: ResponseSchema,
@@ -29,6 +27,7 @@ export const Entity = ({
       if (object.error || !object.object) {
         throw new Error("Error on entity generation completion");
       }
+      console.log(object);
 
       const newContext = object.object.insertion.map((item) => {
         if (item.type === "text") {
@@ -37,12 +36,15 @@ export const Entity = ({
           return { entity: item.value, id: getNextEntityId() };
         }
       });
-      updateContext(newContext, storeId);
+      updateContext(newContext, storeId!);
+      setFinalVal(newContext);
     },
   });
 
   // MARK: methods ================================
   const handleClick = () => {
+    if (!storeId) return;
+
     setOverwrite(true);
     const prompt = generatePrompt(storeId);
     console.log(prompt);
@@ -68,22 +70,29 @@ export const Entity = ({
     );
   }
   return (
-    <span className="bg-yellow-200">
-      {object?.insertion &&
-        object?.insertion.map((response, index) => {
-          if (response?.type === "text") {
-            return <Text value={response?.value} key={index} />;
+    <>
+      {finalVal && finalVal.length > 0 ? (
+        finalVal.map((response, index) => {
+          if ("text" in response) {
+            return <Text value={response.text} key={index} />;
           } else {
             return (
               <Entity
-                storeId={getNextEntityId()}
-                name={response?.value}
+                storeId={response.id}
+                name={response.entity}
                 key={index}
               />
             );
           }
-        })}
-    </span>
+        })
+      ) : (
+        <span className="bg-yellow-200">
+          {object?.insertion?.map((response, index) => {
+            return <Text value={response?.value} key={index} />;
+          })}
+        </span>
+      )}
+    </>
   );
 };
 
