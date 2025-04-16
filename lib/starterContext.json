@@ -1,0 +1,54 @@
+[
+  {
+    "text": "Joji is a singer, songwriter, and record producer known for his melancholic,"
+  },
+  {
+    "entity": "lo-fi",
+    "id": 0
+  },
+  {
+    "text": ", and "
+  },
+  {
+    "entity": "R&B",
+    "id": 1
+  },
+  {
+    "text": "-influenced music. Formerly a YouTube personality under the entity "
+  },
+  {
+    "entity": "Filthy Frank",
+    "id": 2
+  },
+  {
+    "text": ", he transitioned into music with his debut album "
+  },
+  {
+    "entity": "Ballads 1 (2018)",
+    "id": 3
+  },
+  {
+    "text": ", which featured the hit "
+  },
+  {
+    "entity": "Slow Dancing in the Dark",
+    "id": 4
+  },
+  {
+    "text": ". His later albums, "
+  },
+  {
+    "entity": "Nectar (2020)",
+    "id": 5
+  },
+  {
+    "text": " and "
+  },
+  {
+    "entity": "Smithereens (2022)",
+    "id": 6
+  },
+  {
+    "text": ", further established his signature emotional and atmospheric sound."
+  }
+]

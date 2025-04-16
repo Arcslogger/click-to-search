@@ -19,6 +19,7 @@ Fill in [BLANK] with an insertion summarizing <Entity value="Channel Orange (201
 ${JSON.stringify(exampleResponse, null, 2)}
 
 ## Task 2
+
 `;
 
 const testPrompt1 = `
